@@ -1,7 +1,7 @@
-**Admin  Account**
+<!-- **Admin  Account**
 - Username: admin
 - Password: admin
-- ```perpustakaan-digital/auth```
+- ```perpustakaan-digital/auth``` -->
 
 **Siswa  Account**
 - Username: REG003
