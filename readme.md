@@ -19,5 +19,5 @@ git clone https://github.com/twaygaol/perpustakaan-digital.git
 
 2. **Buka ```localhost/phpmyadmin``` lalu buat database dengan nama ```perpustakaan-digital``` dan import file ```sql/perpustakaan-digital.sql```**
 
-3. **Buka ```localhost/app-perpus``` untuk menjalankan aplikasi**
+3. **Buka ```localhost/perpustakaan-digital``` untuk menjalankan aplikasi**
 
