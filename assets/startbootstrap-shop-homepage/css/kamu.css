@@ -1,0 +1,32 @@
+.aside .logo a::before {
+    border-top: 3px solid #302e4d;
+    border-left: 3px solid #302e4d;
+  }
+  .aside .logo a::after {
+    border-bottom: 3px solid #302e4d;
+    border-right: 3px solid #302e4d;
+  }
+  .contact .contact-info-item .icon .fa,
+  .lightbox .lightbox-controls .prev-item,
+  .lightbox .lightbox-controls .next-item,
+  .aside .nav li a:hover,
+  .aside .nav li a.active,
+  .home .home-filter button,
+  .home .home-item .home-info .icon .fa {
+    color: #eca218;
+  }
+  
+  .aside .nav-toggler span,
+  .aside .nav-toggler span::before,
+  .aside .nav-toggler span::after,
+  .home .intro .social-link a {
+    background-color: #eca218;
+  }
+  .home .about-me a,
+  .home .kau-me a {
+    background-color: black;
+  }
+  .home .home-filter button.active {
+    background-color: #eca218;
+  }
+  
