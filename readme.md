@@ -16,7 +16,7 @@
 - Password: 123
 --------------------------
 **Admin  Account**
-- ```perpustakaan-digital/auth```
+- http://pustaka.rf.gd/auth
 - Username: admin
 - Password: admin
 
