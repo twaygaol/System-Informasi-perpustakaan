@@ -1,12 +1,18 @@
-<!-- **Admin  Account**
+**Admin  Account**
 - Username: admin
 - Password: admin
-- ```perpustakaan-digital/auth``` -->
+- ```perpustakaan-digital/auth```
 
 **Siswa  Account**
 - Username: REG003
 - Password: 1234567
 - ```perpustakaan-digital/login```
+
+**kunjungi**
+pustaka.rf.gd
+
+username : REG001
+password : 123
 
 ------------
 
