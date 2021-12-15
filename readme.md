@@ -1,4 +1,4 @@
-**Admin  Account**
+<!-- **Admin  Account**
 - Username: admin
 - Password: admin
 - ```perpustakaan-digital/auth```
@@ -6,13 +6,16 @@
 **Siswa  Account**
 - Username: REG003
 - Password: 1234567
-- ```perpustakaan-digital/login```
+- ```perpustakaan-digital/login``` -->
 
 **Kunjungi website**
 - http://pustaka.rf.gd/
+
+**Siswa  Account**
 - Username: REG001
 - Password: 123
-
+--------------------------
+**Admin  Account**
 - ```perpustakaan-digital/auth```
 - Username: admin
 - Password: admin
