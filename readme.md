@@ -13,6 +13,13 @@
 - Username: REG001
 - Password: 123
 
+- ```perpustakaan-digital/auth```
+- Username: admin
+- Password: admin
+
+
+
+
 
 
 
