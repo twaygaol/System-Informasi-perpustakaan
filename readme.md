@@ -8,11 +8,13 @@
 - Password: 1234567
 - ```perpustakaan-digital/login```
 
-**kunjungi**
-pustaka.rf.gd
+**PUBLIC**
+- http://pustaka.rf.gd/
+- Username: REG001
+- Password: 123
 
-username : REG001
-password : 123
+
+
 
 ------------
 
