@@ -74,6 +74,39 @@ class Laporan extends CI_Controller
         }
     }
 
+    // ============ Cetak laporan pinjam buku ==========================
+    public function laporanpinjam()
+    {
+        if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
+            redirect(base_url());
+        }
+
+        $data['title']  = 'Laporan Transaksi Pinjaman buku';
+        $data['transaksi'] = $this->m_transaksi->getPinjam();
+        $this->template->load('admin/template', 'admin/cetak/viewpinjam', $data);
+    }
+
+    public function laporankembali()
+    {
+        if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') !== 'admin') {
+            redirect(base_url());
+        }
+
+        $data = [
+            'title'     => 'Laporan transaksi pengembalian Buku',
+            'transaksi' => $this->m_transaksi->getData(),
+            'jml_buku'  => $this->db->get('buku')->num_rows(),
+            'denda'     => $this->db->select_sum('denda')->get('transaksi')->row_array()['denda'],
+            'pinjam'    => $this->db->get_where('transaksi', ['tgl_kembali'=>null])->num_rows(),
+            'kembali'   => $this->db->get_where('transaksi', ['tgl_kembali !='=>null])->num_rows(),
+        ];
+
+        $this->template->load('admin/template', 'admin/cetak/viewkembali', $data);
+    }
+    
+
+    // ============ Cetak laporan pinjam buku ==========================
+
     public function laporanuser($id='')
     {
         if (!$this->session->userdata('isLogin')) {

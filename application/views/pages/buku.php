@@ -1,15 +1,11 @@
 <div class="row" style="margin-bottom:10px">
-    
-    <!-- <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
-            </div>
-        </header> -->
-
-    <div class="col-md-6">
+    <div class="col-md-6 " style="margin-top:50px;">
+    <h1 data-aos="fade-up"
+     data-aos-duration="3000"  style="text-align:center; width:100%;font-size:20px; padding:10px; border-radius:40px;color:white; background-color:coral;"><strong >Galeri Buku  </strong></h1>
+     <span>
+     Merupakan daftar koleksi-koleksi terbaru kami. Tidak semuanya baru, adapula koleksi yang data-datanya sudah diperbaiki. Selamat menikmati
+     </span>
+     <div class="col-md-20" style="width:700px;">
         <form action="" style="margin-top:20px">
             <div class="input-group input-group-sm">
                 <input type="text" name="cari" placeholder="cari berdasarkan judul .." class="form-control" value="<?= (isset($_GET['cari']))?$_GET['cari']:'' ?>">
@@ -19,18 +15,20 @@
             </div>
         </form>
     </div>
+    </div>
     
 </div>
+<br><br>
 <div class="row">
     <?php foreach ($buku as $bk) : ?>
-        <div class="col-xs-0">
+        <div class="col-md-3 col-sm-4 col-xs-6">
             <div class="box box-widget widget-user">
-                <div class="widget-user-header bg-black" style="background-image: url(<?= base_url('assets/img/buku/'.$bk['sampul']) ?>); background-size:cover; height:150px; width: 200px;">
+                <div class="widget-user-header bg-black" style="background-image: url(<?= base_url('assets/img/buku/'.$bk['sampul']) ?>); background-size:cover; height:350px;">
                 </div>
-                <div class="box-footer" style="padding-top: 5px;">
+                <div class="box-footer" style="padding-top: 10px;">
                     <h3 style="margin-top:0"><?= $bk['judul_buku'] ?></h3>
-                    <p>Tahun Terbit: <?= $bk['tahun_terbit'] ?> </p> <p> <?= $bk['jumlah'] ?> Lembar</p>
-                    <button data-id="<?= $bk['id'] ?>" class="btn btn-sm btn-primary detail" data-toggle="modal" data-target="#modal-default" style="margin-top: 10px;">detail buku</button>
+                    <p>Tahun Terbit: <?= $bk['tahun_terbit'] ?> -  <?= $bk['jumlah'] ?> Buku</p>
+                    <button data-id="<?= $bk['id'] ?>" class="btn btn-sm btn-primary detail" data-toggle="modal" data-target="#modal-default" style="margin-top: 10px;">lihat detail</button>
                 </div>
             </div>
         </div>

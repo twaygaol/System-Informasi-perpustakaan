@@ -30,7 +30,6 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Jumlah<br>Denda</span>
                     <span class="info-box-number"><?= $denda==null?'Rp.0':'Rp.'.number_format($denda) ?></span>
-                    <a href="<?= base_url('kategori') ?>">lihat selengkapnya ></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -45,7 +44,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Jumlah<br>Peminjaman</span>
                     <span class="info-box-number"><?= $pinjam ?></span>
-                    <a href="<?= base_url('peminjaman') ?>">lihat selengkapnya ></a>
+                    <a href="<?= base_url('transaksi/pinjam') ?>">lihat selengkapnya ></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -59,7 +58,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Jumlah<br>Pengembalian</span>
                     <span class="info-box-number"><?= $kembali ?></span>
-                    <a href="<?= base_url('pengembalian') ?>">lihat selengkapnya ></a>
+                    <a href="<?= base_url('transaksi/kembali') ?>">lihat selengkapnya ></a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -73,6 +72,7 @@
         
         
     </div>
+	
 	<?php if($this->session->userdata('hak_akses')=='admin'): ?>
     <!-- /.row -->
     <h3>Data Transaksi Terkini</h3>
@@ -107,7 +107,7 @@
                                 <td><?= $trx['nama_siswa'] ?></td>
                                 <td><?= $trx['judul_buku'] ?></td>
                                 <td><?= date('d-M-Y', strtotime($trx['tgl_pinjam'])) ?></td>
-                                <td><?= ($trx['tgl_kembali']=='')?'-':date('d-M-Y', strtotime($trx['tgl_kembali'])) ?></td>
+                                <td><?= ($trx['tgl_kembali']=='')?'':date('d-M-Y', strtotime($trx['tgl_kembali'])) ?></td>
                                 <td><?= ($trx['tgl_kembali']=='')?'OnGoing':'Selesai' ?></td>
                                 <td><?= ($trx['denda']=='')?'':'Rp.'.number_format($trx['denda']) ?></td>
                                 <td class="text-center">
@@ -116,6 +116,7 @@
 									<?php else: ?>
 										<button class="btn btn-sm btn-secondary" disabled>Kembali</button>
 									<?php endif; ?>
+									<a href="<?= base_url('laporan/kembali/'.$trx['id']) ?>" target="_blank" class="btn btn-sm btn-success">Cetak</a>
                                     <a href="<?= base_url('transaksi/hapus/'.$trx['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                                 </td>
                             </tr>

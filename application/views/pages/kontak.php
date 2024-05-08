@@ -40,14 +40,6 @@
               </form>
             </div>
           </div>
-          <div class="col-md-4">
-            <ul class="accordion">
-              <li>
-                  <img src="<?php echo base_url()?>assets/startbootstrap-shop-homepage/images/undraw1.png" alt="">
-              </li>
-              </ul>
-              </div>
-          </div>
         </div>
       </div>
     </div>

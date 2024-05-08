@@ -25,17 +25,42 @@ class Transaksi extends CI_Controller
         $data['transaksi'] = $this->m_transaksi->getPinjam();
         $this->template->load('admin/template', 'admin/transaksi/pinjam', $data);
     }
-
     public function kembali()
     {
-        if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
+        // if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
+        //     redirect(base_url());
+        // }
+
+        // $data['title']  = 'Transaksi kembali';
+        // $data['transaksi'] = $this->m_transaksi->getPinjam();
+        // $this->template->load('admin/template', 'admin/transaksi/kembali', $data);
+
+        if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') !== 'admin') {
             redirect(base_url());
         }
 
-        $data['title']  = 'Transaksi Kembali';
-        $data['transaksi'] = $this->m_transaksi->getKembali();
+        $data = [
+            'title'     => 'transaksi kembali',
+            'transaksi' => $this->m_transaksi->getData(),
+            'jml_buku'  => $this->db->get('buku')->num_rows(),
+            'denda'     => $this->db->select_sum('denda')->get('transaksi')->row_array()['denda'],
+            'pinjam'    => $this->db->get_where('transaksi', ['tgl_kembali'=>null])->num_rows(),
+            'kembali'   => $this->db->get_where('transaksi', ['tgl_kembali !='=>null])->num_rows(),
+        ];
+
         $this->template->load('admin/template', 'admin/transaksi/kembali', $data);
     }
+
+    // public function kembali()
+    // {
+    //     if (!$this->session->userdata('isLogin') || $this->session->userdata('hak_akses') != 'admin') {
+    //         redirect(base_url());
+    //     }
+
+    //     $data['title']  = 'Transaksi Kembali';
+    //     $data['transaksi'] = $this->m_transaksi->getKembali();
+    //     $this->template->load('admin/template', 'admin/transaksi/kembali', $data);
+    // }
 
     public function peminjaman()
     {

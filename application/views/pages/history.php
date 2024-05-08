@@ -1,13 +1,16 @@
              
-<div class="row">
-    <div class="col">
+<div class="row" >
+    <div class="col" style="margin-top:10%;display:flex;flex-direction:row;">
         <div class="">
-            <h2> <strong>Your Loan History</strong> <br>"return the book according to your loan period otherwise a fine will be imposed"</h2>
-        </div>      
-        <div class="box">
+        <h1 data-aos="fade-up"
+     data-aos-duration="3000"  style="text-align:center; width:100%;font-size:20px; padding:10px; border-radius:40px;color:white; background-color:coral;"><strong >History Peminjaman Buku </strong></h1>
+                        <span>Koleksi-koleksi buku yang anda baca dapat anda lihat disini <br>dan harap mengembalikan sesuai waktu peminjaman ya 👍
+                        </span>
+        </div><br>      
+        <div class="box" style="margin:0 50px;">
             <div class="box-body">
                 <table id="dataTable" class="table display responsive nowrap" style="width:100%">
-                    <thead class="">
+                    <thead class="" style="background:gray;color:white;border-radius:20px;">
                         <tr>
                             <th>No</th>
                             <th>Judul Buku</th>
@@ -30,7 +33,7 @@
                                     <?php if($trx['tgl_kembali'] !== null): ?>
                                         <a href="<?= base_url('laporan/laporanuser/'.$trx['id']) ?>" target="_blank" class="btn btn-sm btn-success">Cetak</a>
                                     <?php else: ?>
-                                        <a href="#" class="btn btn-sm btn-success disabled">Cetak</a>
+                                        <a href="<?= base_url('laporan/kembali/'.$trx['id']) ?>" class="btn btn-sm btn-success disabled">Cetak</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>

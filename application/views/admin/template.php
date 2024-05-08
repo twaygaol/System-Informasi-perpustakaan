@@ -59,13 +59,13 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="<?= base_url('home') ?>" class="logo">
+            <a href="#" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>DL</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">
                     <!-- <img src="<?= base_url('assets/dist/img/logo.png') ?>" alt=""> -->
-                    <b>Digital Library</b>
+                    <b style="font-size:12px;">SMA NEGERI 1 SIMPANG KANAN</b>
                 </span>
             </a>
 
@@ -92,9 +92,6 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="<?= base_url('admin/ubahpass') ?>" class="btn btn-default btn-flat">Ubah Password</a>
-                                    </div>
                                     <div class="pull-right">
                                         <a href="<?= base_url('auth/logout') ?>" onclick="return confirm('apakah anda yakin?')" class="btn btn-default btn-flat">Sign out</a>
                                     </div>

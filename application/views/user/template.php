@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?= $title ?> | perpustakaan-digital</title>
+    <link href="https://disdikbud.banyuasinkab.go.id/wp-content/uploads/sites/269/2022/11/Logo-Tut-Wuri-Handayani-PNG-Warna.png" rel="icon">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<?= base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
@@ -13,8 +14,11 @@
     <link rel="stylesheet" href="<?= base_url('assets/dist/css/skins/_all-skins.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bower_components/tamplate/css/style.min.css') ?>">
-    
-    
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
     <!-- bootstrap css -->
     <!-- <link rel="stylesheet" href="<?php echo base_url()?>assets/startbootstrap-shop-homepage/css/bootstrap.min.css"> -->
     <!-- owl css -->
@@ -26,29 +30,66 @@
     <!-- kamu css -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/startbootstrap-shop-homepage/css/kamu.css">
 
-    
-   
+    <!-- sweetalert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/homepage-readme/assets/css/fontawesome.css">
     <link rel="stylesheet" href="stylesheet" href="<?php echo base_url()?>assets/homepage-readme/assets/css/templatemo-sixteen.css">
     <link rel="stylesheet" href="stylesheet" href="<?php echo base_url()?>assets/homepage-readme/assets/css/owl.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha3/css/bootstrap.min.css">
 
     <!-- Google Font -->
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
+      <style>
+        .menu_utama {
+   margin-top:3px;
+   width: 100px;
+   background-color: white;
+   color: black;
+   padding:10px 15px;
+}
+.menu_utama:hover{
+   background-color: #ffff;
+}
+.menu_sub {
+   display: none;
+   list-style-type: none;
+   margin-left: -55px;
+   margin-bottom: -20px;
+   width: 250px;
+}
+.menu_sub a{
+   display: block;
+   width: 100%;
+   color: black;
+   background:white;
+   padding: 20px;
+   text-decoration: none;
+   border-bottom:solid 1px #black;
+}
+.menu_sub a:hover{
+   background-color: gray;
+}
+#menu_dropdown .menu_utama:hover > .menu_sub {
+   display:block;
+}
+      </style>
+  </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 
 <body class="hold-transition skin-black layout-top-nav ">
 <div class="loader_bg">
         <div class="loader"><img src="<?php echo base_url()?>assets/startbootstrap-shop-homepage/images/loading.gif" alt="" /></div>
     </div>
-    <div class="wrapper">
-        <header class="main-header">
-            <nav class="navbar navbar-static-top">
+    <div class="">
+        <header class="main-header" style="position:fixed;background:white;width:100%;">
+            <nav class="" >
                 <div class="container">
                     <div class="navbar-header">
-                    <a href="<?= base_url(); ?>" class="navbar-brand"> DIGITAL <strong style='color:orange'>LIBRARY    </strong></a>
+                    <a href="<?= base_url(); ?>" class="navbar-brand"> <strong style='color:orange'>SMA NEGERI 1 SIMPANG KANAN</strong></a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
@@ -56,14 +97,25 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left " id="navbar-collapse">
-                        <ul class="nav navbar-nav " >
-                            <?php if (isset($_SESSION['isLogin'])) : ?>
-                            <li class="<?= ($title == 'home') ? 'active' : '' ?> "><a href="<?= base_url('/') ?>">Home</a></li>
-                            <li class="<?= ($title == 'History') ? 'active' : '' ?> "><a href="<?= base_url('page/history') ?>">History</a></li>     
-                            <li class="<?= ($title == 'daftar buku') ? 'active' : '' ?> "><a href="<?= base_url('page/buku') ?>">Gallery Books</a></li>
-                            <li class="<?= ($title == 'Kontak') ? 'active' : '' ?> "><a href="<?= base_url('page/kontak') ?>">Contact Us</a></li>
-                            <?php endif; ?>
+                    <ul class="nav navbar-nav" id="menu_dropdown">
+                      <li class="<?= ($title == 'home') ? 'active' : '' ?>"><a style="color:black;" href="<?= base_url('/home') ?>">Beranda</a></li>
+                      <li class="<?= ($title == 'Tentang kami') ? 'active' : '' ?>"><a style="color:black;" href="<?= base_url('/about') ?>">Tentang Kami</a></li>
+                      <!-- <li class="menu_utama">
+                        Profile
+                        <ul class="menu_sub">
+                          <li><a href="<?= base_url('/kata') ?>">Kata Sambutan</a></li>
+                          <li><a href="<?= base_url('/about') ?>">Profile Perpustakaan</a></li>
+                          <li><a href="<?= base_url('/visi') ?>">Visi & Misi Perpustakaan</a></li>
+                          <li><a href="<?= base_url('/tugas') ?>">Tugas & Fungsi Perpustakaan</a></li>
                         </ul>
+                      </li> -->
+                      
+                      <?php if (isset($_SESSION['isLogin'])) : ?>
+                        <li class="<?= ($title == 'History') ? 'active' : '' ?>"><a style="color:black;" href="<?= base_url('page/history') ?>">History Buku</a></li>     
+                        <li class="<?= ($title == 'daftar buku') ? 'active' : '' ?>"><a style="color:black;" href="<?= base_url('page/buku') ?>">Galeri Buku</a></li>
+                      <?php endif; ?>
+                    </ul>
+
                     </div>
                     <!-- /.navbar-collapse -->
                     <!-- Navbar Right Menu -->
@@ -88,8 +140,8 @@
                                     </ul>
                                 </li>
                             <?php else : ?>
-                                <li class="<?= ($title == 'Login') ? 'active' : '' ?> " ><a href="<?= base_url('page/login') ?> ">Login</a></li>
-                                <li class="<?= ($title == 'Register') ? 'active' : '' ?> " ><a href="<?= base_url('') ?>">Register</a></li>
+                                    <li  class="<?= ($title == 'Login') ? 'active' : '' ?> " ><a   href="<?= base_url('page/login') ?> "><span style="border-radius:5px; font-family:sans-serif; background-color:coral;font-size:18px;padding:7px;color:white;">Login</span></a></li>
+                                    
                             <?php endif; ?>
 
                         </ul>
@@ -107,31 +159,78 @@
             <!-- /.container -->
         </div>
         <!-- /.content-wrapper -->
-
-        <footer class="main-footer skin-black">
+        <footer class="main-footer skin-black" style="background-color: coral;">
         
-<!-- How to change your own map point
-	1. Go to Google Maps
-	2. Click on your location point
-	3. Click "Share" and choose "Embed map" tab
-	4. Copy only URL and paste it within the src="" field below
--->        
+        <!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+                -->
          <!-- <div class="col-md-20 ">
-            <div id="map">
-              <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="330px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div id="map" style="margin-top:100px;">
+              <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="40%" height="450px" style="border-radius:15px;" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div> -->
+            <!-- contact -->
+    <!-- <div class="send-message" style="padding:5px; margin:0 700px;margin-top:-500px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Send us a Message</h2>
             </div>
-          </div> -->
-        <div class="copyright " style="margin-top:-5px">
+          </div>
+          <div class="col-md-8">
+            <div class="contact-form">
+              <form id="contact" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="subject" type="text" class="form-control" id="subject" placeholder="registration number" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="btn btn-primary">Send Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <br>
+          </div>
+        <div class="copyright" style="background-color: coral; margin-top:-5px">
                 <div class="container">
-                    <p>© 2021 DIGITAL LIBRARY. Design by team</p>
+                    <p>© Hak Cipta_SMA Negeri 1 Simpang Kanan</p>
                 </div>
             </div>
-            <!-- /.container -->
+            
+        
+            
+            
         </footer>
 
     </div>
-    <!-- ./wrapper -->
-
+ 
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -192,7 +291,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" <?= (!$this->session->userdata('isLogin'))?'disabled':'' ?> name="submit" class="btn btn-primary"  onclick="return confirm('apakah anda yakin?')">Pinjam</button>
+                    <button type="submit" <?= (!$this->session->userdata('isLogin')) ? 'disabled' : '' ?> name="submit" class="btn btn-primary" onclick="pinjamBuku()">Pinjam</button>
                 </div>
                 </form>
             </div>
@@ -202,8 +301,39 @@
         
     </div>
     <!-- /.modal -->
+    
+    <!-- <script>
+    function pinjamBuku() {
+        // Proses pinjam buku disini (jika perlu)
 
-   
+        // Menampilkan notifikasi setelah tombol "Pinjam" ditekan
+        alert("Terima kasih telah meminjam buku! Selamat membaca!");
+
+    }
+    </script>
+    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function pinjamBuku() {
+            // Proses pinjam buku disini (jika perlu)
+
+            // Menampilkan notifikasi SweetAlert setelah tombol "Pinjam" ditekan
+            Swal.fire({
+                icon: 'success',
+                title: 'TERIMA KASIH GUYSS 👍!',
+                text: 'Terima kasih telah meminjam buku! Selamat membaca!',
+                showConfirmButton: false, // Tidak menampilkan tombol OK
+                timer: 400000000, // Waktu tampilan notifikasi dalam milidetik (opsional)
+                allowOutsideClick: false // Tidak membiarkan user menutup notifikasi dengan mengklik di luar notifikasi
+              }).then((result) => {
+            // Redirect ke halaman buku setelah menutup notifikasi
+            if (result.dismiss === Swal.DismissReason.timer || result.dismiss === Swal.DismissReason.close) {
+                window.location.href = 'http://localhost/perpustakaan-digital/page/history'; // Ganti 'url_halaman_buku' dengan URL yang sesuai
+            }
+        });
+        }
+    </script>
 
     <!-- jQuery 3 -->
     <script src="<?= base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
@@ -311,6 +441,21 @@
     <script src="<?php echo base_url()?>assets/homepage-readme/assets/js/slick.js"></script>
     <script src="<?php echo base_url()?>assets/homepage-readme/assets/js/isotope.js"></script>
     <script src="<?php echo base_url()?>assets/homepage-readme/assets/js/accordions.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- dropdown -->
+  <!-- Tambahkan script berikut di bagian bawah halaman sebelum tag </body> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha3/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha3/js/bootstrap.min.js"></script>
+
+
 
 </body>
 
